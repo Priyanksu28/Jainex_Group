@@ -1,0 +1,428 @@
+.site-selector-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.site-picker-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.site-select-dropdown {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f8fafc;
+    outline: none;
+    cursor: pointer;
+    min-width: 260px;
+    transition: all 0.15s;
+}
+
+.site-select-dropdown:focus {
+    border-color: #ffb41d;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 180, 29, 0.2);
+}
+
+.site-action-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-pair-gang {
+    background: #ffb41d;
+    color: #0f172a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+.btn-pair-gang:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+.btn-deploy-res {
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.btn-deploy-res:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}
+
+/* Tabs */
+.assignment-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.assignment-tab {
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.assignment-tab:hover {
+    color: #0f172a;
+}
+
+.assignment-tab.active {
+    color: #0f172a;
+    border-bottom-color: #ffb41d;
+}
+
+.tab-badge {
+    background: #e2e8f0;
+    color: #334155;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.assignment-tab.active .tab-badge {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Gang Cards Grid */
+.gangs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+.gang-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.gang-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.gang-card-header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.gang-crane-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0;
+    color: #f8fafc;
+}
+
+.gang-crane-reg {
+    font-size: 0.82rem;
+    color: #ffb41d;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.gang-card-body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+.crew-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.crew-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+}
+
+.crew-person-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #f1f5f9;
+}
+
+.crew-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.crew-person-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.crew-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.crew-contact {
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.riggers-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.rigger-chip {
+    background: #f1f5f9;
+    color: #334155;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.gang-card-footer {
+    padding: 12px 20px;
+    background: #fafafa;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shift-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.btn-disband-gang {
+    background: #fee2e2;
+    color: #991b1b;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-disband-gang:hover {
+    background: #fca5a5;
+}
+
+/* Roster Breakdown Columns */
+.roster-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.roster-column-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.roster-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid #f1f5f9;
+    margin-bottom: 14px;
+}
+
+.roster-column-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.roster-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.roster-item-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.roster-item-card.operating {
+    border-left: 4px solid #10b981;
+}
+
+.roster-item-card.idle {
+    border-left: 4px solid #f59e0b;
+}
+
+.roster-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.roster-item-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.roster-item-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.roster-item-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-mini-transfer {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-mini-transfer:hover {
+    background: #bae6fd;
+}
+
+.btn-mini-release {
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-mini-release:hover {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.empty-state-box {
+    text-align: center;
+    padding: 36px 20px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+}
+
+.empty-state-box p {
+    margin: 6px 0 0;
+    font-size: 0.9rem;
+}

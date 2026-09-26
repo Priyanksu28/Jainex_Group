@@ -1,0 +1,122 @@
+.view-site-modal {
+    max-width: 620px;
+}
+
+.site-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.view-site-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.site-hero-card {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.hero-code {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ffb41d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.hero-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0;
+    color: #f8fafc;
+}
+
+.hero-client {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-top: 4px;
+}
+
+.site-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-item.full-width {
+    grid-column: span 2;
+}
+
+.detail-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.status-change-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-radius: 10px;
+    gap: 12px;
+}
+
+.status-change-box label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #92400e;
+}
+
+.status-select {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #fde68a;
+    font-weight: 600;
+    background: #ffffff;
+    color: #78350f;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 580px) {
+    .site-details-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-item.full-width {
+        grid-column: span 1;
+    }
+}

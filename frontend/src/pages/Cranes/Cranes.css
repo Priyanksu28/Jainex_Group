@@ -1,0 +1,330 @@
+/* Layout Overrides */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    background-color: #f8fafc;
+    min-height: 100vh;
+    transition: all 0.2s ease;
+}
+
+.module-container {
+    padding: 30px 32px;
+}
+
+/* Header Styles */
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header-titles h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #111d2e;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header-titles p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Export as PDF Button */
+.btn-export-pdf {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(239, 68, 68, 0.25);
+}
+
+.btn-export-pdf:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.3);
+}
+
+.btn-export-pdf:active {
+    transform: translateY(0);
+}
+
+/* Export as Excel Button */
+.btn-export-excel {
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.25);
+}
+
+.btn-export-excel:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.btn-export-excel:active {
+    transform: translateY(0);
+}
+
+/* Table Card Container */
+.table-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Control Row inside the card */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+}
+
+.search-box input {
+    padding: 10px 16px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    font-size: 0.92rem;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box input::placeholder {
+    color: #94a3b8;
+}
+
+.search-box input:focus {
+    border-color: #ffb41d;
+    box-shadow: 0 0 0 3px rgba(255, 180, 29, 0.2);
+}
+
+/* Add Crane Button */
+.btn-add-crane {
+    background-color: #ffb41d;
+    color: #0f172a;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.1s ease;
+    white-space: nowrap;
+}
+
+.btn-add-crane:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+/* Table Structure */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 680px;
+}
+
+.data-table th {
+    padding: 14px 16px;
+    color: #111d2e;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 1.5px solid #f1f5f9;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.data-table td {
+    padding: 16px 16px;
+    color: #334155;
+    font-size: 0.92rem;
+    border-bottom: 1px solid #f8fafc;
+    vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.id-cell,
+.reg-cell {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: inline-block;
+}
+
+.status-pill.working { background: #dcfce7; color: #166534; }
+.status-pill.assigned { background: #fef9c3; color: #854d0e; }
+.status-pill.maintenance { background: #fee2e2; color: #991b1b; }
+.status-pill.inactive { background: #f1f5f9; color: #475569; }
+
+/* Action Buttons */
+.action-cell {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-view-action {
+    background-color: #ffffff;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-view-action:hover {
+    background-color: #f1f5f9;
+}
+
+.btn-edit-action {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-edit-action:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-delete-action {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-delete-action:hover {
+    background-color: #fca5a5;
+    color: #7f1d1d;
+}
+
+.table-empty {
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .module-container {
+        padding: 20px 16px;
+    }
+
+    .header-titles h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .module-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .btn-export-pdf,
+    .btn-export-excel {
+        flex: 1;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .btn-add-crane {
+        width: 100%;
+        text-align: center;
+    }
+
+    .table-card {
+        padding: 14px 12px;
+    }
+}

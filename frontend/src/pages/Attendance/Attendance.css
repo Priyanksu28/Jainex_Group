@@ -1,0 +1,434 @@
+.module-header {
+    margin-bottom: 24px;
+}
+
+.module-header h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin: 0;
+    color: #1e293b;
+}
+
+.module-header p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ================= STAFF VIEW STYLING ================= */
+.staff-attendance-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.attendance-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid #f1f5f9;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.date-badge {
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.already-marked-alert {
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    margin-bottom: 18px;
+}
+
+.mark-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.form-group label .req {
+    color: #ef4444;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #1e293b;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ffb41d;
+    box-shadow: 0 0 0 3px rgba(255, 180, 29, 0.2);
+}
+
+.status-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.btn-status-option {
+    border: 1.5px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    padding: 12px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.btn-status-option.present.active {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #15803d;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.btn-status-option.half-day.active {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #b45309;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.btn-status-option.leave.active {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.btn-save-attendance {
+    background: #ffb41d;
+    color: #0f172a;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    margin-top: 6px;
+}
+
+.btn-save-attendance:hover {
+    background: #f5a300;
+    transform: translateY(-1px);
+}
+
+.btn-save-attendance:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- Mini Stats Grid --- */
+.mini-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.mini-stat {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mini-stat .mini-num {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.mini-stat .mini-lbl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.mini-stat.present .mini-num { color: #15803d; }
+.mini-stat.half-day .mini-num { color: #b45309; }
+.mini-stat.leave .mini-num { color: #1d4ed8; }
+.mini-stat.total .mini-num { color: #1e293b; }
+
+.sub-title {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.att-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.att-table th {
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 700;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1.5px solid #e2e8f0;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+}
+
+.att-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+}
+
+.bold-cell {
+    font-weight: 700;
+    color: #1e293b !important;
+}
+
+.att-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.att-badge.present {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.att-badge.half-day {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.att-badge.leave {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.att-badge.absent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ================= ADMIN VIEW STYLING ================= */
+.admin-attendance-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-summary-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.admin-stat-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.admin-stat-item .lbl {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.admin-stat-item .val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.admin-stat-item.green .val { color: #15803d; }
+.admin-stat-item.amber .val { color: #b45309; }
+.admin-stat-item.blue .val { color: #1d4ed8; }
+
+.admin-controls-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-group label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.control-group input,
+.control-group select {
+    padding: 8px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #1e293b;
+    outline: none;
+}
+
+.control-group.search-group {
+    flex: 1;
+    min-width: 260px;
+}
+
+.control-group.search-group input {
+    flex: 1;
+}
+
+.btn-search-apply {
+    background: #1a2d42;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-search-apply:hover {
+    background: #0f172a;
+}
+
+.role-tag {
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.table-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.table-empty {
+    text-align: center;
+    padding: 30px !important;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .staff-attendance-layout {
+        grid-template-columns: 1fr;
+    }
+    .admin-summary-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-summary-bar {
+        grid-template-columns: 1fr;
+    }
+    .admin-controls-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .mini-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

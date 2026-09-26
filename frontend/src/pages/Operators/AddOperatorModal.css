@@ -1,0 +1,539 @@
+/* --- Modal Overlay --- */
+.operator-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    animation: opModalFade 0.2s ease-out;
+}
+
+/* --- Modal Content Window --- */
+.operator-modal-content {
+    background: #ffffff;
+    width: 980px;
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: opModalSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes opModalFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes opModalSlide {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- Modal Header --- */
+.operator-modal-header {
+    padding: 16px 28px;
+    background: #1a2d42;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.operator-modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.modal-subtitle {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+}
+
+.op-close-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.op-close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+/* --- Modal Form Body --- */
+.operator-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.operator-scroll-body {
+    padding: 20px 28px;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    background: #f8fafc;
+}
+
+/* --- Photo Upload Section --- */
+.op-photo-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.op-photo-preview-box {
+    width: 84px;
+    height: 84px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.op-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.op-photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 600;
+    gap: 4px;
+}
+
+.op-photo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.op-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a2d42;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: fit-content;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.op-upload-btn:hover {
+    background: #0f172a;
+    transform: translateY(-1px);
+}
+
+.op-remove-photo-btn {
+    background: transparent;
+    border: none;
+    color: #dc2626;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    width: fit-content;
+    text-decoration: underline;
+}
+
+.op-remove-photo-btn:hover {
+    color: #991b1b;
+}
+
+.op-photo-hint {
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+/* --- Form Sections --- */
+.op-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.op-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid #f1f5f9;
+}
+
+.op-section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.op-section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #1a2d42;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.op-section-header h3 {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #1a2d42;
+}
+
+.op-section-hint {
+    font-size: 0.76rem;
+    color: #64748b;
+    font-weight: normal;
+    margin-left: 6px;
+}
+
+.btn-add-item {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+
+.btn-add-item:hover {
+    background: #bae6fd;
+    color: #0284c7;
+}
+
+/* --- Form Grid & Input Elements --- */
+.op-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.op-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.op-checkbox-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+.op-checkbox-wrap input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: #1a2d42;
+}
+
+.op-checkbox-wrap label {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    text-transform: none !important;
+}
+
+.op-row-item {
+    display: grid;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.nominee-item-grid {
+    grid-template-columns: 1.5fr 0.8fr 1.2fr 2.5fr auto;
+}
+
+.family-item-grid {
+    grid-template-columns: 1.5fr 1.2fr 1fr 1.5fr auto;
+}
+
+.op-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.op-field.field-small {
+    min-width: 60px;
+}
+
+.op-field.span-2 {
+    grid-column: span 2;
+}
+
+.op-field.span-3 {
+    grid-column: span 3;
+}
+
+.op-field label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.op-field label .req {
+    color: #ef4444;
+}
+
+.op-field input,
+.op-field select,
+.op-field textarea {
+    padding: 9px 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background: #ffffff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.op-field input:focus,
+.op-field select:focus,
+.op-field textarea:focus {
+    border-color: #ffb41d;
+    box-shadow: 0 0 0 3px rgba(255, 180, 29, 0.2);
+}
+
+.op-field input:disabled,
+.op-field textarea:disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.op-field textarea {
+    resize: vertical;
+    min-height: 56px;
+}
+
+.btn-remove-row {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+
+.btn-remove-row:hover {
+    background: #fca5a5;
+    color: #991b1b;
+}
+
+/* --- Modal Footer --- */
+.operator-modal-footer {
+    padding: 14px 28px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.op-btn-cancel {
+    background: #ffffff;
+    color: #475569;
+    border: 1.5px solid #cbd5e1;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.op-btn-cancel:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.op-btn-submit {
+    background: #ffb41d;
+    color: #0f172a;
+    border: none;
+    padding: 9px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.op-btn-submit:hover {
+    background: #f5a300;
+    transform: translateY(-1px);
+}
+
+.op-btn-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+    .nominee-item-grid,
+    .family-item-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .operator-modal-content {
+        width: 95vw;
+        max-height: 92vh;
+    }
+
+    .operator-modal-header {
+        padding: 14px 18px;
+    }
+
+    .operator-scroll-body {
+        padding: 16px 14px;
+    }
+
+    .op-section {
+        padding: 14px 12px;
+    }
+
+    .op-grid-3,
+    .op-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .op-field.span-2,
+    .op-field.span-3 {
+        grid-column: span 1;
+    }
+
+    .nominee-item-grid,
+    .family-item-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-remove-row {
+        width: 100%;
+        height: 34px;
+    }
+}
+
+@media (max-width: 540px) {
+    .op-photo-upload-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .op-photo-controls {
+        align-items: center;
+    }
+
+    .operator-modal-footer {
+        flex-direction: column-reverse;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .op-btn-cancel,
+    .op-btn-submit {
+        width: 100%;
+        text-align: center;
+    }
+}
+
