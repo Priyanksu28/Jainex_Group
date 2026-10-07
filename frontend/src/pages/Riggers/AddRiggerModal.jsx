@@ -126,9 +126,11 @@ const AddRiggerModal = ({ closeModal, refreshData }) => {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             
-            alert("Rigger Registered Successfully with Declaration details!");
-            refreshData();
+            if (refreshData) {
+                await refreshData();
+            }
             closeModal();
+            alert("Rigger Registered Successfully with Declaration details!");
         } catch (err) {
             alert(err.response?.data?.message || err.response?.data?.error || "Error saving rigger");
         } finally {
@@ -272,12 +274,15 @@ const AddRiggerModal = ({ closeModal, refreshData }) => {
                             <div className="rig-grid-3">
                                 <div className="rig-field">
                                     <label>Designation (DEG)</label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="e.g. Rigger" 
+                                    <select 
                                         value={personal.designation}
                                         onChange={(e) => setPersonal({ ...personal, designation: e.target.value })}
-                                    />
+                                    >
+                                        <option value="Rigger">Rigger</option>
+                                        <option value="Crane Rigger">Crane Rigger</option>
+                                        <option value="Master Rigger">Master Rigger</option>
+                                        <option value="Rigging Helper">Rigging Helper</option>
+                                    </select>
                                 </div>
                                 <div className="rig-field">
                                     <label>Date of Joining (D.O.J)</label>

@@ -28,9 +28,11 @@ const TransferModal = ({ resourceItem, currentSite, allSites = [], closeModal, r
                 transferDate,
                 remarks
             });
-            alert(`${resourceItem.resource_type} transferred successfully!`);
-            refreshData();
+            if (refreshData) {
+                await refreshData(targetSiteId);
+            }
             closeModal();
+            alert(`${resourceItem.resource_type} transferred successfully!`);
         } catch (err) {
             console.error('Error transferring resource:', err);
             setError(err.response?.data?.error || 'Failed to transfer resource.');

@@ -90,10 +90,21 @@ const Assignments = () => {
         }
     }, [activeTab]);
 
-    const refreshAll = () => {
-        if (selectedSiteId) fetchSiteRoster(selectedSiteId);
-        API.get('/assignments/overview').then(res => setOverview(res.data)).catch(() => {});
-        if (activeTab === 'pool') fetchAvailablePool();
+    const refreshAll = async (targetSiteId) => {
+        const siteToFetch = targetSiteId ? String(targetSiteId) : selectedSiteId;
+        if (targetSiteId && String(targetSiteId) !== selectedSiteId) {
+            setSelectedSiteId(String(targetSiteId));
+        }
+
+        const promises = [];
+        if (siteToFetch) {
+            promises.push(fetchSiteRoster(siteToFetch));
+        }
+        promises.push(
+            API.get('/assignments/overview').then(res => setOverview(res.data)).catch(() => {})
+        );
+        promises.push(fetchAvailablePool());
+        await Promise.all(promises);
     };
 
     const handleDisbandGang = async (gangId, craneReg) => {

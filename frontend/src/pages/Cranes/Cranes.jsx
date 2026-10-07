@@ -20,8 +20,9 @@ const Cranes = () => {
 
     const fetchCranes = async () => {
         try {
+            setLoading(true);
             const res = await API.get('/cranes/list');
-            setCranes(res.data);
+            setCranes(res.data || []);
         } catch (err) {
             console.error("Error fetching cranes", err);
         } finally {

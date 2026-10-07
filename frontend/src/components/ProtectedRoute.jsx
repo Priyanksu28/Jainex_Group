@@ -14,30 +14,59 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '100vh',
-                fontFamily: 'Inter, sans-serif',
+                minHeight: '100vh',
+                fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
                 textAlign: 'center',
-                padding: '20px',
-                background: '#f8fafc'
+                padding: '24px',
+                background: 'var(--bg-app)'
             }}>
-                <h2 style={{ fontSize: '1.8rem', color: '#1e293b', marginBottom: '8px' }}>🚫 Access Denied</h2>
-                <p style={{ color: '#64748b', maxWidth: '420px', marginBottom: '20px' }}>
-                    Your account role (<strong>{user.role || 'Staff'}</strong>) does not have permission to view this module.
-                </p>
-                <button 
-                    onClick={() => navigate('/dashboard')}
-                    style={{
-                        background: '#1a2d42',
-                        color: '#fff',
-                        border: 'none',
-                        padding: '10px 22px',
-                        borderRadius: '8px',
-                        fontWeight: '700',
-                        cursor: 'pointer'
-                    }}
-                >
-                    &larr; Back to Dashboard
-                </button>
+                <div style={{
+                    background: '#FFFFFF',
+                    padding: '40px 32px',
+                    borderRadius: 'var(--radius-xl, 24px)',
+                    boxShadow: 'var(--shadow-lg)',
+                    border: '1px solid var(--border-subtle)',
+                    maxWidth: '440px',
+                    width: '100%'
+                }}>
+                    <div style={{
+                        width: '60px',
+                        height: '60px',
+                        borderRadius: 'var(--radius-full)',
+                        background: '#FEE2E2',
+                        color: '#DC2626',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.8rem',
+                        margin: '0 auto 18px'
+                    }}>
+                        🚫
+                    </div>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                        Access Restricted
+                    </h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '24px', lineHeight: 1.5 }}>
+                        Your role (<strong>{user.role || 'Staff'}</strong>) is not authorized to access this module.
+                    </p>
+                    <button 
+                        onClick={() => navigate('/dashboard')}
+                        style={{
+                            background: 'var(--primary)',
+                            color: '#FFFFFF',
+                            border: 'none',
+                            padding: '12px 28px',
+                            borderRadius: 'var(--radius-full)',
+                            fontWeight: 700,
+                            fontSize: '0.92rem',
+                            cursor: 'pointer',
+                            boxShadow: '0 4px 14px var(--primary-shadow)',
+                            transition: 'all 0.15s ease'
+                        }}
+                    >
+                        Back to Dashboard
+                    </button>
+                </div>
             </div>
         );
     }

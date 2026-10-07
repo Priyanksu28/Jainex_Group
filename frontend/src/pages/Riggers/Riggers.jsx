@@ -22,8 +22,9 @@ const Riggers = () => {
 
     const fetchRiggers = async () => {
         try {
+            setLoading(true);
             const res = await API.get('/riggers/list');
-            setRiggers(res.data);
+            setRiggers(res.data || []);
         } catch (err) {
             console.error("Error fetching riggers", err);
         } finally {

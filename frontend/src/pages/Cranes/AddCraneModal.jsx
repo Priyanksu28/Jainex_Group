@@ -27,9 +27,11 @@ const AddCraneModal = ({ closeModal, refreshData }) => {
             await API.post('/cranes/add', data, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            alert("Crane Added Successfully!");
-            refreshData();
+            if (refreshData) {
+                await refreshData();
+            }
             closeModal();
+            alert("Crane Added Successfully!");
         } catch (err) {
             alert(err.response?.data?.error || "Error adding crane");
         } finally {

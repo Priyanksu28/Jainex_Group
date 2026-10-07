@@ -5,8 +5,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,11 +17,11 @@
 /* --- Modal Content Window --- */
 .operator-modal-content {
     background: #ffffff;
-    width: 980px;
+    width: 960px;
     max-width: 95vw;
     max-height: 90vh;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-xl, 24px);
+    box-shadow: var(--shadow-modal, 0 25px 50px -12px rgba(15, 23, 42, 0.2));
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -46,9 +46,10 @@
 
 /* --- Modal Header --- */
 .operator-modal-header {
-    padding: 16px 28px;
-    background: #1a2d42;
-    color: #ffffff;
+    padding: 18px 28px;
+    background: #ffffff;
+    color: var(--text-main, #0f172a);
+    border-bottom: 1px solid var(--border-subtle, #eef2f6);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,37 +58,40 @@
 
 .operator-modal-header h2 {
     margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.3px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--text-main, #0f172a);
 }
 
 .modal-subtitle {
-    font-size: 0.78rem;
-    color: #94a3b8;
+    font-size: 0.8rem;
+    color: var(--text-muted, #64748b);
     font-weight: 500;
     display: block;
     margin-top: 2px;
 }
 
 .op-close-btn {
-    background: rgba(255, 255, 255, 0.12);
-    border: none;
-    color: #ffffff;
-    font-size: 24px;
+    background: var(--bg-card-subtle, #f8fafc);
+    border: 1px solid var(--border-default, #e2e8f0);
+    color: var(--text-muted, #64748b);
+    font-size: 1.2rem;
     line-height: 1;
     width: 34px;
     height: 34px;
-    border-radius: 50%;
+    border-radius: var(--radius-full, 9999px);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s, transform 0.15s;
+    transition: all 0.15s ease;
 }
 
 .op-close-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fecaca;
     transform: scale(1.05);
 }
 
@@ -101,11 +105,11 @@
 }
 
 .operator-scroll-body {
-    padding: 20px 28px;
+    padding: 22px 28px;
     overflow-y: auto;
     flex: 1;
     min-height: 0;
-    background: #f8fafc;
+    background: var(--bg-card-subtle, #f8fafc);
 }
 
 /* --- Photo Upload Section --- */
@@ -114,25 +118,24 @@
     align-items: center;
     gap: 20px;
     background: #ffffff;
-    border: 1.5px dashed #cbd5e1;
-    border-radius: 12px;
+    border: 1.5px dashed var(--border-default, #cbd5e1);
+    border-radius: var(--radius-md, 14px);
     padding: 16px 20px;
     margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: var(--shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.03));
 }
 
 .op-photo-preview-box {
-    width: 84px;
-    height: 84px;
-    border-radius: 8px;
-    background: #f1f5f9;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-sm, 10px);
+    background: var(--bg-card-subtle, #f8fafc);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    border: 2px solid #cbd5e1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1.5px solid var(--border-default, #cbd5e1);
 }
 
 .op-photo-img {
@@ -146,8 +149,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #94a3b8;
-    font-size: 0.68rem;
+    color: var(--text-light, #94a3b8);
+    font-size: 0.7rem;
     font-weight: 600;
     gap: 4px;
 }
@@ -162,19 +165,20 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #1a2d42;
+    background: var(--primary, #0062FF);
     color: #ffffff;
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: var(--radius-full, 9999px);
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
     width: fit-content;
-    transition: background 0.15s, transform 0.1s;
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-primary-btn, 0 4px 14px rgba(0, 98, 255, 0.28));
 }
 
 .op-upload-btn:hover {
-    background: #0f172a;
+    background: var(--primary-hover, #0050d8);
     transform: translateY(-1px);
 }
 
@@ -196,17 +200,17 @@
 
 .op-photo-hint {
     font-size: 0.76rem;
-    color: #64748b;
+    color: var(--text-muted, #64748b);
 }
 
 /* --- Form Sections --- */
 .op-section {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border: 1px solid var(--border-subtle, #eef2f6);
+    border-radius: var(--radius-md, 14px);
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.03));
 }
 
 .op-section-header {
@@ -215,7 +219,7 @@
     align-items: center;
     margin-bottom: 16px;
     padding-bottom: 10px;
-    border-bottom: 1.5px solid #f1f5f9;
+    border-bottom: 1.5px solid var(--border-subtle, #f1f5f9);
 }
 
 .op-section-title-wrap {
@@ -230,34 +234,34 @@
     justify-content: center;
     width: 26px;
     height: 26px;
-    background: #1a2d42;
+    background: var(--primary, #0062FF);
     color: #ffffff;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    font-weight: 700;
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.78rem;
+    font-weight: 800;
 }
 
 .op-section-header h3 {
     margin: 0;
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #1a2d42;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-main, #0f172a);
 }
 
 .op-section-hint {
     font-size: 0.76rem;
-    color: #64748b;
+    color: var(--text-muted, #64748b);
     font-weight: normal;
     margin-left: 6px;
 }
 
 .btn-add-item {
-    background: #e0f2fe;
-    color: #0369a1;
-    border: 1px solid #bae6fd;
+    background: var(--primary-light, #eff6ff);
+    color: var(--primary, #0062FF);
+    border: none;
     padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.82rem;
     font-weight: 700;
     cursor: pointer;
     display: inline-flex;
@@ -267,8 +271,7 @@
 }
 
 .btn-add-item:hover {
-    background: #bae6fd;
-    color: #0284c7;
+    background: #dbeafe;
 }
 
 /* --- Form Grid & Input Elements --- */
@@ -295,13 +298,13 @@
     width: 17px;
     height: 17px;
     cursor: pointer;
-    accent-color: #1a2d42;
+    accent-color: var(--primary, #0062FF);
 }
 
 .op-checkbox-wrap label {
     font-size: 0.84rem;
     font-weight: 600;
-    color: #334155;
+    color: var(--text-main, #0f172a);
     cursor: pointer;
     text-transform: none !important;
 }
@@ -311,10 +314,10 @@
     gap: 10px;
     align-items: flex-end;
     margin-bottom: 12px;
-    background: #f8fafc;
+    background: var(--bg-card-subtle, #f8fafc);
     padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-sm, 10px);
+    border: 1px solid var(--border-subtle, #eef2f6);
 }
 
 .nominee-item-grid {
@@ -344,11 +347,11 @@
 }
 
 .op-field label {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #475569;
+    color: var(--text-secondary, #475569);
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
 }
 
 .op-field label .req {
@@ -359,10 +362,10 @@
 .op-field select,
 .op-field textarea {
     padding: 9px 12px;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 8px;
+    border: 1.5px solid var(--border-default, #e2e8f0);
+    border-radius: var(--radius-md, 14px);
     font-size: 0.9rem;
-    color: #1e293b;
+    color: var(--text-main, #0f172a);
     background: #ffffff;
     outline: none;
     font-family: inherit;
@@ -374,8 +377,8 @@
 .op-field input:focus,
 .op-field select:focus,
 .op-field textarea:focus {
-    border-color: #ffb41d;
-    box-shadow: 0 0 0 3px rgba(255, 180, 29, 0.2);
+    border-color: var(--primary, #0062FF);
+    box-shadow: 0 0 0 3px rgba(0, 98, 255, 0.12);
 }
 
 .op-field input:disabled,
@@ -393,10 +396,10 @@
 .btn-remove-row {
     background: #fee2e2;
     color: #dc2626;
-    border: 1px solid #fecaca;
+    border: none;
     height: 38px;
     width: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm, 10px);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -414,9 +417,9 @@
 
 /* --- Modal Footer --- */
 .operator-modal-footer {
-    padding: 14px 28px;
+    padding: 16px 28px;
     background: #ffffff;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-subtle, #eef2f6);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -425,41 +428,43 @@
 }
 
 .op-btn-cancel {
-    background: #ffffff;
-    color: #475569;
-    border: 1.5px solid #cbd5e1;
+    background: var(--bg-card-subtle, #f8fafc);
+    color: var(--text-secondary, #475569);
+    border: 1px solid var(--border-default, #e2e8f0);
     padding: 9px 20px;
-    border-radius: 8px;
+    border-radius: var(--radius-full, 9999px);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: all 0.15s ease;
 }
 
 .op-btn-cancel:hover {
-    background: #f1f5f9;
-    color: #1e293b;
+    background: #e2e8f0;
+    color: var(--text-main, #0f172a);
 }
 
 .op-btn-submit {
-    background: #ffb41d;
-    color: #0f172a;
+    background: var(--primary, #0062FF);
+    color: #ffffff;
     border: none;
     padding: 9px 24px;
-    border-radius: 8px;
+    border-radius: var(--radius-full, 9999px);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-primary-btn, 0 4px 14px rgba(0, 98, 255, 0.28));
 }
 
 .op-btn-submit:hover {
-    background: #f5a300;
+    background: var(--primary-hover, #0050d8);
     transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 98, 255, 0.35);
 }
 
 .op-btn-submit:disabled {
-    opacity: 0.65;
+    opacity: 0.6;
     cursor: not-allowed;
     transform: none;
 }

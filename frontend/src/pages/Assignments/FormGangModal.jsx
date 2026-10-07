@@ -61,9 +61,11 @@ const FormGangModal = ({ siteRoster, closeModal, refreshData }) => {
                 assigned_date: assignedDate,
                 notes
             });
-            alert('Crane Crew Gang formed successfully!');
-            refreshData();
+            if (refreshData) {
+                await refreshData(site.id);
+            }
             closeModal();
+            alert('Crane Crew Gang formed successfully!');
         } catch (err) {
             console.error('Error forming crew gang:', err);
             setError(err.response?.data?.error || 'Failed to form crew gang.');

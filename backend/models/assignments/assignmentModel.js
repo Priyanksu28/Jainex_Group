@@ -108,7 +108,7 @@ exports.getAvailablePool = async () => {
   const [freeOperators] = await db.execute(`
     SELECT e.emp_id, e.first_name, e.last_name, e.designation, e.contact_no, e.photo, e.unit_name
     FROM employee_details e
-    WHERE LOWER(e.designation) = 'operator'
+    WHERE LOWER(e.designation) LIKE '%operator%'
       AND e.emp_id NOT IN (
         SELECT resource_id 
         FROM site_deployments 
@@ -121,7 +121,7 @@ exports.getAvailablePool = async () => {
   const [freeRiggers] = await db.execute(`
     SELECT e.emp_id, e.first_name, e.last_name, e.designation, e.contact_no, e.photo, e.unit_name
     FROM employee_details e
-    WHERE LOWER(e.designation) = 'rigger'
+    WHERE LOWER(e.designation) LIKE '%rigger%'
       AND e.emp_id NOT IN (
         SELECT resource_id 
         FROM site_deployments 

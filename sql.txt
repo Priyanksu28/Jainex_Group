@@ -128,3 +128,69 @@ CREATE TABLE `attendance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
+
+CREATE TABLE IF NOT EXISTS `crane_logbook` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  
+  -- Date & Period
+  `month` VARCHAR(30) NOT NULL COMMENT 'e.g. August 2026 or 2026-08',
+  `logbook_date` DATE NOT NULL COMMENT 'Date of the log entry',
+  
+  -- References / IDs
+  `site_id` INT NOT NULL COMMENT 'Reference to sites table',
+  `crane_number_id` INT NOT NULL COMMENT 'Reference to cranes table (crane_id)',
+  
+  -- Time Duration
+  `start_time` VARCHAR(30) NULL COMMENT 'Work start time, e.g. 08:00 AM or 08:00',
+  `end_time` VARCHAR(30) NULL COMMENT 'Work end time, e.g. 05:00 PM or 17:00',
+  `total_hours` DECIMAL(6, 2) GENERATED ALWAYS AS (
+    CASE 
+      WHEN `hours_end` >= `hours_start` THEN (`hours_end` - `hours_start`) 
+      ELSE NULL 
+    END
+  ) VIRTUAL COMMENT 'Calculated working hours',
+  
+  -- Hour Meter Readings (HMR)
+  `hours_start` DECIMAL(10, 2) NULL COMMENT 'HMR Start Reading',
+  `hours_end` DECIMAL(10, 2) NULL COMMENT 'HMR End Reading',
+  
+  -- KM / KMH Readings (Odometer)
+  `kmh_start` DECIMAL(10, 2) NULL COMMENT 'KM / Speedometer Start Reading',
+  `kmh_end` DECIMAL(10, 2) NULL COMMENT 'KM / Speedometer End Reading',
+  `total_kmh` DECIMAL(10, 2) GENERATED ALWAYS AS (
+    CASE 
+      WHEN `kmh_end` >= `kmh_start` THEN (`kmh_end` - `kmh_start`) 
+      ELSE NULL 
+    END
+  ) VIRTUAL COMMENT 'Calculated total distance/run',
+  
+  -- Work & Operational Details
+  `work_description` TEXT NOT NULL COMMENT 'Description of work carried out',
+  
+  -- Signatures & Approvals
+  `site_incharge_sign` VARCHAR(255) NULL COMMENT 'Incharge signature (name, status, or file URL)',
+  `operator_sign` VARCHAR(255) NULL COMMENT 'Operator signature (name, status, or file URL)',
+  
+  -- Remarks & System Metadata
+  `remarks` TEXT NULL COMMENT 'Any additional observations or breakdown notes',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  -- Indexes for high-speed queries & filtering
+  INDEX `idx_logbook_date` (`logbook_date`),
+  INDEX `idx_month` (`month`),
+  INDEX `idx_site_id` (`site_id`),
+  INDEX `idx_crane_number_id` (`crane_number_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+ALTER TABLE `crane_logbook`
+  CHANGE COLUMN `log_date` `logbook_date` DATE NOT NULL,
+  CHANGE COLUMN `month_year` `month` VARCHAR(30) NOT NULL,
+  CHANGE COLUMN `crane_id` `crane_number_id` INT NOT NULL,
+  ADD COLUMN `end_time` VARCHAR(30) NULL AFTER `start_time`,
+  ADD COLUMN `hours_start` DECIMAL(10,2) NULL AFTER `end_time`,
+  ADD COLUMN `hours_end` DECIMAL(10,2) NULL AFTER `hours_start`,
+  ADD COLUMN `kmh_start` DECIMAL(10,2) NULL AFTER `hours_end`,
+  ADD COLUMN `kmh_end` DECIMAL(10,2) NULL AFTER `kmh_start`,
+  CHANGE COLUMN `site_incharge` `site_incharge_sign` VARCHAR(255) NULL;

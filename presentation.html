@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jainex Heavy Fleet & Crew Management System - Project Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0c111d;
+    color: #f1f5f9;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    padding: 70px 90px;
+    background: radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+                #0f172a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Slide Header */
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 24px;
+  }
+  .slide-category {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #f59e0b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-category::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+  }
+  .slide-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+  .slide-subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-top: 6px;
+  }
+  .brand-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .brand-logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 15px;
+    color: #0f172a;
+  }
+  .brand-logo-text {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+
+  /* Slide Body */
+  .slide-body {
+    flex: 1;
+    padding: 36px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Slide Footer */
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+    font-size: 13px;
+    color: #64748b;
+  }
+  .slide-footer .confidential {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-footer .slide-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+
+  /* Grids & Cards */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .grid-1-2 {
+    display: grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap: 36px;
+  }
+  .grid-2-1 {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 36px;
+  }
+
+  .card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    padding: 28px;
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+  }
+  .card.highlight {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(245, 158, 11, 0.04));
+  }
+  .card.highlight-blue {
+    border-color: rgba(59, 130, 246, 0.35);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(59, 130, 246, 0.05));
+  }
+  .card.highlight-emerald {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(16, 185, 129, 0.05));
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .card-icon.amber { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .card-icon.blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+  .card-icon.emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .card-icon.purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .card-p {
+    font-size: 15px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin-top: 14px;
+  }
+  .feature-list li {
+    font-size: 15px;
+    color: #cbd5e1;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '✓';
+    color: #f59e0b;
+    font-weight: 800;
+    font-size: 14px;
+    background: rgba(245, 158, 11, 0.12);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pill-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .pill-blue { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
+  .pill-emerald { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .pill-purple { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
+  .pill-slate { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
+
+  /* Title Slide Specifics */
+  .title-slide {
+    background: radial-gradient(circle at 75% 30%, rgba(245, 158, 11, 0.15) 0%, transparent 55%),
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                #090d16;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+  }
+  .title-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .title-main {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    max-width: 1400px;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 70%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .title-main span {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .title-desc {
+    font-size: 22px;
+    color: #94a3b8;
+    max-width: 1000px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+  }
+  .title-meta-bar {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 48px;
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+  }
+  .meta-item {
+    text-align: left;
+  }
+  .meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+  .meta-val {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+
+  /* Metric Stat Box */
+  .stat-box {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .stat-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f59e0b;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .stat-val.blue { color: #60a5fa; }
+  .stat-val.emerald { color: #34d399; }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+
+  /* Architecture & Flow Diagrams */
+  .arch-box {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+  .arch-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 6px;
+  }
+  .arch-subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .tech-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Table styling */
+  .pres-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+  }
+  .pres-table th {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 700;
+    color: #cbd5e1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pres-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    background: rgba(30, 41, 59, 0.4);
+  }
+  .pres-table tr:last-child td {
+    border-bottom: none;
+  }
+  .pres-table tr:hover td {
+    background: rgba(245, 158, 11, 0.04);
+  }
+  .code-cell {
+    font-family: 'JetBrains Mono', monospace;
+    color: #f59e0b;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* Role Matrix Card */
+  .role-card {
+    border-radius: 16px;
+    padding: 22px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .role-card.admin { border-top: 4px solid #ef4444; }
+  .role-card.supervisor { border-top: 4px solid #3b82f6; }
+  .role-card.operator { border-top: 4px solid #f59e0b; }
+  .role-card.rigger { border-top: 4px solid #10b981; }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .role-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  /* Callout box */
+  .callout {
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .callout.blue {
+    background: rgba(59, 130, 246, 0.08);
+    border-left-color: #3b82f6;
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================================
+     SLIDE 1: TITLE SLIDE
+     ========================================================================= -->
+<div class="slide title-slide">
+  <div>
+    <div class="title-hero-badge">
+      <span>Enterprise Heavy Equipment & Operations ERP</span>
+    </div>
+    <h1 class="title-main">
+      Jainex Heavy Fleet & Crew<br><span>Operations & Logbook ERP</span>
+    </h1>
+    <p class="title-desc">
+      A Next-Generation Digital Platform for Heavy Crane Fleet Management, Dynamic Gang Deployment, Real-Time Field Attendance, and Physical-Standard Daily Crane Logbooks.
+    </p>
+
+    <div class="title-meta-bar">
+      <div class="meta-item">
+        <div class="meta-label">Client Organization</div>
+        <div class="meta-val">Jainex Pariwahan Pvt. Ltd.</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Core Modules</div>
+        <div class="meta-val">Fleet · Workforce · Logbook · Deployments</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Technology Stack</div>
+        <div class="meta-val">React + Node.js + Express + MySQL</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Access Architecture</div>
+        <div class="meta-val">Multi-Role RBAC (Admin, Sup, Op, Rig)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 2: EXECUTIVE SUMMARY & OBJECTIVES
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Project Overview</div>
+      <div class="slide-title">Executive Summary & Operational Vision</div>
+      <div class="slide-subtitle">Transforming heavy industrial crane rental and logistics operations from error-prone paper workflows to real-time digital intelligence.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-3">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">⚠️</div>
+          <div>
+            <div class="card-title">Legacy Challenges</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Prior Bottlenecks</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>Paper Logbook Delay:</strong> Physical handwritten logbooks took weeks to reach head office for billing.</li>
+          <li><strong>Disjointed Crew Tracking:</strong> Lack of real-time visibility into which Operator and Rigger are assigned to which Crane and Site.</li>
+          <li><strong>Disputed Engine Hours:</strong> Meter reading mismatches, leading to client billing disputes.</li>
+          <li><strong>Manual Attendance:</strong> Inability to correlate on-site attendance with crane operation logs.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">⚡</div>
+          <div>
+            <div class="card-title">The Unified Solution</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Digital Transformation</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>1-to-1 Digital Logbook:</strong> Pixel-perfect reproduction of physical Jainex logbook sheets with automated hour calculations.</li>
+          <li><strong>Dynamic Gang Pairing:</strong> Group Cranes + Operators + Riggers into certified operational units.</li>
+          <li><strong>Role-Tailored Panels:</strong> Customized views for Admins, Supervisors, Operators (OP-xxx), and Riggers (RIG-xxx).</li>
+          <li><strong>Instant Billing Reconciliation:</strong> Export and print monthly verified client timesheets in 1 click.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-emerald">
+        <div class="card-header">
+          <div class="card-icon emerald">📈</div>
+          <div>
+            <div class="card-title">Strategic Value</div>
+            <div class="pill pill-emerald" style="margin-top:4px;">Business ROI</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>100% Billing Accuracy:</strong> Elimination of billing discrepancies through validated meter logs.</li>
+          <li><strong>Zero Data Lag:</strong> Instant daily submission from job sites directly to ERP database.</li>
+          <li><strong>Asset Protection:</strong> Continuous tracking of crane operational health, KMH, and engine hours.</li>
+          <li><strong>Strict Role Boundaries:</strong> Tailored mobile-ready portals preventing unauthorized data alteration.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Internal Operational Deck</div>
+    <div class="slide-num">Slide 02 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 3: SYSTEM ARCHITECTURE & TECH STACK
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">System Architecture</div>
+      <div class="slide-title">End-to-End Technology Stack</div>
+      <div class="slide-subtitle">Engineered with high performance, secure micro-modular design and sub-second response times.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-4" style="margin-bottom: 24px;">
+      <div class="arch-box">
+        <div class="pill pill-blue" style="margin-bottom: 12px;">Frontend Client</div>
+        <div class="arch-title">React 18 + Vite</div>
+        <div class="arch-subtitle">Modern SPA with CSS Design Tokens</div>
+        <div class="tech-tag-container">
+          <span class="tech-tag">React Router v6</span>
+          <span class="tech-tag">Context API</span>
+          <span class="tech-tag">Axios Interceptors</span>
+          <span class="tech-tag">Lucide Icons</span>
+          <span class="tech-tag">Print Media CSS</span>
+        </div>
+      </div>
+
+      <div class="arch-box">
+        <div class="pill pill-emerald" style="margin-bottom: 12px;">Backend API</div>
+        <div class="arch-title">Node.js + Express</div>
+        <div class="arch-subtitle">RESTful Micro-Services Controller Pattern</div>
+        <div class="tech-tag-container">
+          <span class="tech-tag">Express.js</span>
+          <span class="tech-tag">JWT Auth Tokens</span>
+          <span class="tech-tag">Role Guards</span>
+          <span class="tech-tag">Multer Uploads</span>
+          <span class="tech-tag">CORS Middleware</span>
+        </div>
+      </div>
+
+      <div class="arch-box">
+        <div class="pill pill-amber" style="margin-bottom: 12px;">Database Engine</div>
+        <div class="arch-title">MySQL 8.0 Enterprise</div>
+        <div class="arch-subtitle">Relational Normalized Schema with Foreign Keys</div>
+        <div class="tech-tag-container">
+          <span class="tech-tag">InnoDB Engine</span>
+          <span class="tech-tag">Connection Pool</span>
+          <span class="tech-tag">ACID Compliant</span>
+          <span class="tech-tag">Date/Hour Indexing</span>
+          <span class="tech-tag">Cascade Integrity</span>
+        </div>
+      </div>
+
+      <div class="arch-box">
+        <div class="pill pill-purple" style="margin-bottom: 12px;">Security & Storage</div>
+        <div class="arch-title">Security & Assets</div>
+        <div class="arch-subtitle">Encrypted Credentials & Media Storage</div>
+        <div class="tech-tag-container">
+          <span class="tech-tag">BCrypt Hash</span>
+          <span class="tech-tag">Sanitized Payloads</span>
+          <span class="tech-tag">Static Media CDN</span>
+          <span class="tech-tag">ID Prefix Routing</span>
+          <span class="tech-tag">SSL / TLS Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card highlight">
+      <div class="grid-3" style="align-items: center;">
+        <div class="stat-box">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">RESTful Endpoint Coverage with JWT Verification</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val blue">&lt; 40ms</div>
+          <div class="stat-label">Average MySQL Query Latency for Monthly Logbook Aggregations</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val emerald">Responsive</div>
+          <div class="stat-label">Seamless UI for Heavy Crane Field Tablets, Mobile Phones & Desktops</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — System Architecture</div>
+    <div class="slide-num">Slide 03 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 4: ROLE-BASED ACCESS CONTROL (RBAC)
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Security & Governance</div>
+      <div class="slide-title">Multi-Tier Role-Based Access Control (RBAC)</div>
+      <div class="slide-subtitle">Strict separation of duties between Administrative staff, Field Supervisors, Crane Operators, and Rigging Crew.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-4">
+      <div class="role-card admin">
+        <div class="role-header">
+          <span class="role-name">👑 Admin</span>
+          <span class="pill pill-slate">Full Access</span>
+        </div>
+        <p class="card-p" style="margin-bottom: 12px;">Executive & Central Operations authority across the entire company fleet.</p>
+        <ul class="feature-list">
+          <li>Create & manage Cranes, Operators, Riggers & Sites.</li>
+          <li>Assign & transfer Gangs across client sites.</li>
+          <li>View, edit, approve & print all crane logbooks.</li>
+          <li>Access comprehensive audit & financial stats.</li>
+        </ul>
+      </div>
+
+      <div class="role-card supervisor">
+        <div class="role-header">
+          <span class="role-name">🛡️ Supervisor</span>
+          <span class="pill pill-blue">Field Lead</span>
+        </div>
+        <p class="card-p" style="margin-bottom: 12px;">On-site operations management and workforce compliance.</p>
+        <ul class="feature-list">
+          <li>Deploy gangs & manage daily site resource allocations.</li>
+          <li>Audit workforce daily attendance logs.</li>
+          <li>Monitor crane operational hours & status.</li>
+          <li>Review and verify submitted operator log sheets.</li>
+        </ul>
+      </div>
+
+      <div class="role-card operator">
+        <div class="role-header">
+          <span class="role-name">🚜 Operator</span>
+          <span class="pill pill-amber">OP-xxx ID</span>
+        </div>
+        <p class="card-p" style="margin-bottom: 12px;">Licensed Crane Operators driving daily machine operations on-site.</p>
+        <ul class="feature-list">
+          <li>Personalized operator dashboard & profile.</li>
+          <li>Self attendance check-in & shift logging.</li>
+          <li><strong>Daily Crane Logbook Entry:</strong> Record hours, KMH, party, fuel & downtime.</li>
+          <li>Autofill current crane and active site details.</li>
+        </ul>
+      </div>
+
+      <div class="role-card rigger">
+        <div class="role-header">
+          <span class="role-name">🪢 Rigger</span>
+          <span class="pill pill-emerald">RIG-xxx ID</span>
+        </div>
+        <p class="card-p" style="margin-bottom: 12px;">Heavy rigging specialists assisting crane lifting and load safety.</p>
+        <ul class="feature-list">
+          <li>Personalized rigger dashboard & profile.</li>
+          <li>Daily crew attendance logging.</li>
+          <li>View assigned crane, partner operator & active site.</li>
+          <li><strong>No Logbook Access:</strong> Focused solely on crew duty & site operations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout blue">
+      <strong>Role Boundary Enforcement:</strong> Dual-layer verification in place — frontend <code>ProtectedRoute</code> guards prevent route access, while backend Express middleware (<code>authorizeRoles</code>) blocks unauthorized REST API requests at the database layer.
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — RBAC & Permissions</div>
+    <div class="slide-num">Slide 04 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 5: FLEET & ASSET MANAGEMENT (CRANES)
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Core Module</div>
+      <div class="slide-title">Fleet & Asset Master Management</div>
+      <div class="slide-subtitle">Centralized registry of heavy crane machinery, technical specifications, operational status, and document compliance.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">🏗️</div>
+          <div>
+            <div class="card-title">Comprehensive Crane Attributes</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Technical Master Data</div>
+          </div>
+        </div>
+        <p class="card-p">Every crane in the fleet is tracked with high-precision specifications to prevent equipment mismatch during client deployments.</p>
+        
+        <div class="grid-2" style="margin-top: 16px; gap: 14px;">
+          <div class="stat-box">
+            <div class="stat-label">Identifiers</div>
+            <div style="font-size: 14px; font-weight:700; color:#fff; margin-top:4px;">Reg No, Chassis No, Engine No, Model</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Lifting Capacity</div>
+            <div style="font-size: 14px; font-weight:700; color:#f59e0b; margin-top:4px;">25 Ton – 500+ Ton Hydraulic & Crawler</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Boom Length</div>
+            <div style="font-size: 14px; font-weight:700; color:#60a5fa; margin-top:4px;">Main Boom + Fly Jib Extensions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Ownership Type</div>
+            <div style="font-size: 14px; font-weight:700; color:#34d399; margin-top:4px;">Owned vs Hired / Leased</div>
+          </div>
+        </div>
+
+        <ul class="feature-list" style="margin-top: 16px;">
+          <li>Photo gallery uploads via encrypted file pipeline.</li>
+          <li>Compliance expiry tracking (Fitness, Insurance, Third-Party Safety Certs).</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">📊</div>
+          <div>
+            <div class="card-title">Live Asset States & Lifecycle</div>
+            <div class="pill pill-blue" style="margin-top:4px;">State Machine</div>
+          </div>
+        </div>
+        
+        <table class="pres-table" style="margin-top: 10px;">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Operational Meaning</th>
+              <th>System Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pill pill-emerald">Active</span></td>
+              <td>Deployed on active client project site</td>
+              <td>Available for daily logbook entries & gang operations</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-amber">Idle / Yard</span></td>
+              <td>Available in base yard for fresh deployment</td>
+              <td>Open for assignment to new client site contracts</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-purple">Maintenance</span></td>
+              <td>Under active mechanical or electrical overhaul</td>
+              <td>Locked from new deployments until certified fit</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout" style="margin-top: 20px;">
+          <strong>Auditable History:</strong> All status transitions and site reassignments are permanently logged with timestamps to maintain complete lifecycle traceability.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Fleet Management</div>
+    <div class="slide-num">Slide 05 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 6: WORKFORCE MANAGEMENT (OPERATORS & RIGGERS)
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Workforce Engine</div>
+      <div class="slide-title">Operators & Riggers Profile Architecture</div>
+      <div class="slide-subtitle">Digital personnel management for certified heavy machinery operators and specialized rigging crew.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">👷‍♂️</div>
+          <div>
+            <div class="card-title">Crane Operators (Prefix: OP-xxx)</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Machinery Captains</div>
+          </div>
+        </div>
+        <p class="card-p">Operators are assigned dedicated ID codes (e.g. <code>OP-001</code>, <code>OP-002</code>) which drive URL routing, login authentication, and logbook entries.</p>
+        
+        <ul class="feature-list" style="margin-top: 14px;">
+          <li><strong>Heavy Vehicle License:</strong> License number, category & expiration tracking.</li>
+          <li><strong>Operating Experience:</strong> Certified experience on Hydraulic, Crawler & All-Terrain cranes.</li>
+          <li><strong>Photo & Emergency Contacts:</strong> Full KYC profile with Aadhaar/Govt ID verification.</li>
+          <li><strong>Logbook Authorization:</strong> Granted sole permission to input daily engine meter readings.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-emerald">
+        <div class="card-header">
+          <div class="card-icon emerald">🪢</div>
+          <div>
+            <div class="card-title">Riggers & Signalmen (Prefix: RIG-xxx)</div>
+            <div class="pill pill-emerald" style="margin-top:4px;">Safety & Rigging Crew</div>
+          </div>
+        </div>
+        <p class="card-p">Riggers are assigned specialized ID codes (e.g. <code>RIG-001</code>) with dedicated dashboards focused on attendance and site deployment.</p>
+        
+        <ul class="feature-list" style="margin-top: 14px;">
+          <li><strong>Rigging Certification:</strong> Heavy lift slings, shackles, and signal certification records.</li>
+          <li><strong>Gang Pairing Linkage:</strong> Automatically connected to their assigned Crane and Operator.</li>
+          <li><strong>Streamlined Experience:</strong> Distraction-free interface with logbook module excluded for focused daily site attendance.</li>
+          <li><strong>Real-Time Assignment View:</strong> Live view of assigned client project and active supervisor.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="stat-box">
+        <div class="stat-val">OP / RIG</div>
+        <div class="stat-label">Automated Sequential Zero-Padded ID Generation</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val blue">Instant KYC</div>
+        <div class="stat-label">Document Uploads & Verification directly to Server Storage</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val emerald">1-Click Pair</div>
+        <div class="stat-label">Instant Assignment to Heavy Crane Gang Units</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Workforce Module</div>
+    <div class="slide-num">Slide 06 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 7: OPERATIONS & DYNAMIC GANG DEPLOYMENT
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Operations Control</div>
+      <div class="slide-title">Site Master & Dynamic Gang Deployment</div>
+      <div class="slide-subtitle">Coordinating complex heavy equipment logistics by pairing certified human capital with heavy machinery.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-1-2">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">📍</div>
+          <div>
+            <div class="card-title">Site Master</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Project Geographies</div>
+          </div>
+        </div>
+        <p class="card-p">Comprehensive tracking of client construction yards, refineries, bridge sites, and industrial complexes.</p>
+        <ul class="feature-list" style="margin-top: 16px;">
+          <li>Client / Party Name (e.g. L&T, Vaksim Construction).</li>
+          <li>Site Location, State, GPS Landmark & In-charge Contact.</li>
+          <li>Contract commencement & estimated demobilization dates.</li>
+          <li>Active resource count currently stationed on-site.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">🔄</div>
+          <div>
+            <div class="card-title">The "Gang" Operational Concept</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Triad Resource Unit</div>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-around; align-items: center; background: rgba(15, 23, 42, 0.7); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+          <div style="text-align: center;">
+            <div style="font-size: 28px;">🏗️</div>
+            <div style="font-weight: 800; color:#f59e0b; margin-top:4px;">Crane</div>
+            <div style="font-size: 12px; color:#94a3b8;">Primary Asset</div>
+          </div>
+          <div style="font-size: 22px; color:#64748b;">➕</div>
+          <div style="text-align: center;">
+            <div style="font-size: 28px;">👷‍♂️</div>
+            <div style="font-weight: 800; color:#60a5fa; margin-top:4px;">Operator</div>
+            <div style="font-size: 12px; color:#94a3b8;">Licensed Driver</div>
+          </div>
+          <div style="font-size: 22px; color:#64748b;">➕</div>
+          <div style="text-align: center;">
+            <div style="font-size: 28px;">🪢</div>
+            <div style="font-weight: 800; color:#34d399; margin-top:4px;">Rigger</div>
+            <div style="font-size: 12px; color:#94a3b8;">Safety Specialist</div>
+          </div>
+          <div style="font-size: 22px; color:#64748b;">➡️</div>
+          <div style="text-align: center;">
+            <div style="font-size: 28px;">📍</div>
+            <div style="font-weight: 800; color:#c084fc; margin-top:4px;">Project Site</div>
+            <div style="font-size: 12px; color:#94a3b8;">Deployment</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 16px;">
+          <div class="stat-box">
+            <div class="stat-label">Seamless Resource Transfers</div>
+            <div style="font-size: 13px; color:#cbd5e1; margin-top:4px;">Transfer Cranes or Crew between active sites with automatic assignment history archiving.</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Release & De-Mob Management</div>
+            <div style="font-size: 13px; color:#cbd5e1; margin-top:4px;">Release units back to pool immediately upon job completion with 1-click status resets.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Operations & Deployments</div>
+    <div class="slide-num">Slide 07 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 8: ATTENDANCE MANAGEMENT
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Workforce Governance</div>
+      <div class="slide-title">Real-Time Field Attendance System</div>
+      <div class="slide-subtitle">Capturing daily field presence, shift schedules, overtime hours, and attendance verification.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-3">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">📱</div>
+          <div>
+            <div class="card-title">Operator & Rigger Self-Mark</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Field Mobile UI</div>
+          </div>
+        </div>
+        <p class="card-p">Crew members can mark their daily attendance directly from their mobile devices with clean, large-button interfaces.</p>
+        <ul class="feature-list">
+          <li>Automated timestamp and date capture.</li>
+          <li>Visual calendar view of past attendance history.</li>
+          <li>Status selection: Present, Absent, Half-Day, Sick Leave.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">🛡️</div>
+          <div>
+            <div class="card-title">Supervisor Site Roster</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Bulk Verification</div>
+          </div>
+        </div>
+        <p class="card-p">Site Supervisors can view and verify full-crew presence across all cranes operating on their assigned project.</p>
+        <ul class="feature-list">
+          <li>Bulk attendance marking for entire rigging gangs.</li>
+          <li>Immediate red-flag alerts for missing personnel.</li>
+          <li>Site-level daily muster roll export for client safety audits.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-emerald">
+        <div class="card-header">
+          <div class="card-icon emerald">📊</div>
+          <div>
+            <div class="card-title">Admin Payroll Integration</div>
+            <div class="pill pill-emerald" style="margin-top:4px;">HR & Accounting</div>
+          </div>
+        </div>
+        <p class="card-p">Central HR and Payroll teams receive verified monthly attendance aggregates for payroll disbursal.</p>
+        <ul class="feature-list">
+          <li>Monthly aggregate sheets filtered by role & employee.</li>
+          <li>Overtime hours correlation with crane logbook records.</li>
+          <li>Zero ghost-worker claims through audited database logs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <strong>Cross-Module Synchronization:</strong> Operator attendance records are cross-checked with crane daily logbook entries to guarantee that machinery was operated only by verified on-duty staff.
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Attendance Engine</div>
+    <div class="slide-num">Slide 08 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 9: CRANE DAILY DIGITAL LOGBOOK (CORE MODULE)
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Flagship Module</div>
+      <div class="slide-title">Crane Daily Digital Logbook</div>
+      <div class="slide-subtitle">Direct 1-to-1 digital replica of the physical handwritten Jainex Pariwahan Pvt. Ltd. log sheet.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-2-1">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">📖</div>
+          <div>
+            <div class="card-title">Authentic 14-Column Physical Sheet Replica</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Physical-Standard Design</div>
+          </div>
+        </div>
+        <p class="card-p">Designed specifically to match the exact physical paper format used across India's heavy infrastructure sites for decades:</p>
+        
+        <table class="pres-table" style="margin-top: 14px;">
+          <thead>
+            <tr>
+              <th>Col #</th>
+              <th>Header Field</th>
+              <th>Operational Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code-cell">01–03</td>
+              <td>Date · Shift · Crane Reg No</td>
+              <td>Operational date, day/night shift & asset tag</td>
+            </tr>
+            <tr>
+              <td class="code-cell">04–06</td>
+              <td>Client Party · Site · Job Description</td>
+              <td>Work order client & specific lifting task</td>
+            </tr>
+            <tr>
+              <td class="code-cell">07–09</td>
+              <td>Start Time · Finish Time · Total Hours</td>
+              <td>Shift operational duration & billing units</td>
+            </tr>
+            <tr>
+              <td class="code-cell">10–12</td>
+              <td>Engine Hour Meter (Initial/Final/Run)</td>
+              <td>Exact machine run time for diesel/maintenance</td>
+            </tr>
+            <tr>
+              <td class="code-cell">13–14</td>
+              <td>KMH Run · Breakdown / Idle Hours</td>
+              <td>Transit distance & contract downtime logging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">⚡</div>
+          <div>
+            <div class="card-title">1-Click Fast Entry</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Field Ergonomics</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>Autofill Active Deployment:</strong> When an Operator opens the form, their assigned Crane, Site, and Party are auto-populated.</li>
+          <li><strong>Auto-Calculation:</strong> Total working hours, engine runtime, and KM differences calculate automatically as digits are entered.</li>
+          <li><strong>Instant Validation:</strong> Prevents invalid inputs (e.g. final meter lower than initial meter).</li>
+          <li><strong>Zero Learning Curve:</strong> Familiar form layout empowers operators with minimal technical background.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Digital Logbook</div>
+    <div class="slide-num">Slide 09 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 10: LOGBOOK ANALYTICS, PRINTING & EXPORTS
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Reporting & Billing</div>
+      <div class="slide-title">Monthly Log Sheet Verification, Print & Export</div>
+      <div class="slide-subtitle">Automating monthly client invoice verification, print-ready formal log sheets, and spreadsheet exports.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-3">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">🖨️</div>
+          <div>
+            <div class="card-title">Print-Ready Official Sheet</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Client Submission</div>
+          </div>
+        </div>
+        <p class="card-p">Dedicated CSS print media styling turns digital logbook data into an authentic Jainex Pariwahan Pvt. Ltd. printed sheet with complete legal headers and signatures.</p>
+        <ul class="feature-list">
+          <li>Company header & registered office address.</li>
+          <li>Party name, site name, and crane reg number.</li>
+          <li>Dedicated signature blocks for Operator, Jainex Site In-Charge, and Client Representative.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">📊</div>
+          <div>
+            <div class="card-title">Real-Time Summary Ribbon</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Dynamic KPI Bar</div>
+          </div>
+        </div>
+        <p class="card-p">Instant statistical ribbons dynamically calculate KPIs for any selected Crane and Month:</p>
+        <div class="grid-2" style="margin-top: 12px; gap: 10px;">
+          <div class="stat-box">
+            <div class="stat-val" style="font-size:22px;">Total Hrs</div>
+            <div class="stat-label">Net Billable Shift Duration</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val blue" style="font-size:22px;">Engine Run</div>
+            <div class="stat-label">Hour Meter Difference</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val emerald" style="font-size:22px;">Total KMH</div>
+            <div class="stat-label">Odometer Distance Run</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="font-size:22px; color:#f87171;">Breakdowns</div>
+            <div class="stat-label">Total Downtime Hours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card highlight-emerald">
+        <div class="card-header">
+          <div class="card-icon emerald">📥</div>
+          <div>
+            <div class="card-title">1-Click CSV / Excel Export</div>
+            <div class="pill pill-emerald" style="margin-top:4px;">Data Portability</div>
+          </div>
+        </div>
+        <p class="card-p">Export filtered monthly logs directly into standardized CSV formats for seamless ingestion into ERP / Tally accounting packages.</p>
+        <ul class="feature-list">
+          <li>Auto-formatted column headers.</li>
+          <li>Direct integration with corporate finance audits.</li>
+          <li>Eliminates duplicate manual data entry for accountants.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Analytics & Export</div>
+    <div class="slide-num">Slide 10 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 11: DATABASE SCHEMA & DATA INTEGRITY
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Technical Blueprint</div>
+      <div class="slide-title">Relational Database Schema & Data Integrity</div>
+      <div class="slide-subtitle">Normalized MySQL database architecture ensuring relational consistency and transaction safety across all operations.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">🗄️</div>
+          <div>
+            <div class="card-title">Core Relational Entities</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Table Architecture</div>
+          </div>
+        </div>
+        <table class="pres-table">
+          <thead>
+            <tr>
+              <th>Table Name</th>
+              <th>Primary Key / Identifier</th>
+              <th>Core Relationships & Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code-cell">cranes</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Fleet master data, capacity, model, status</td>
+            </tr>
+            <tr>
+              <td class="code-cell">operators</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Operator profile, license, link to <code>users</code></td>
+            </tr>
+            <tr>
+              <td class="code-cell">riggers</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Rigger profile, experience, link to <code>users</code></td>
+            </tr>
+            <tr>
+              <td class="code-cell">sites</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Project location, party, supervisor link</td>
+            </tr>
+            <tr>
+              <td class="code-cell">gang_assignments</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Pairs <code>crane_id</code>, <code>operator_id</code>, <code>rigger_id</code></td>
+            </tr>
+            <tr>
+              <td class="code-cell">deployments</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Links Gang or Crane to <code>site_id</code> with dates</td>
+            </tr>
+            <tr>
+              <td class="code-cell">logbook_entries</td>
+              <td><code>id</code> (INT AUTO)</td>
+              <td>Daily log sheet records, meter readings, hours</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">🛡️</div>
+          <div>
+            <div class="card-title">Data Validation & Consistency Rules</div>
+            <div class="pill pill-blue" style="margin-top:4px;">ACID Rules</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>Referential Integrity:</strong> Foreign key constraints guarantee that logbook entries cannot be created without valid Crane and Site records.</li>
+          <li><strong>Unique Constraint Protection:</strong> Prevents duplicate attendance or conflicting gang assignments for the same operator on a single date.</li>
+          <li><strong>Audit Trail Fields:</strong> Every record tracks <code>created_at</code>, <code>updated_at</code>, and originating <code>user_id</code>.</li>
+          <li><strong>Connection Pooling:</strong> High-throughput MySQL connection pool manages concurrency under peak field check-in hours.</li>
+        </ul>
+
+        <div class="callout blue" style="margin-top: 18px;">
+          <strong>Security:</strong> All SQL queries utilize parameterized statements to completely prevent SQL injection attacks.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Database Blueprint</div>
+    <div class="slide-num">Slide 11 / 12</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SLIDE 12: IMPACT, SECURITY & FUTURE ROADMAP
+     ========================================================================= -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-category">Summary & Next Steps</div>
+      <div class="slide-title">Business Impact & Future Strategic Roadmap</div>
+      <div class="slide-subtitle">Delivering measurable operational efficiency today while laying the foundation for smart telematics tomorrow.</div>
+    </div>
+    <div class="brand-badge">
+      <div class="brand-logo-icon">JX</div>
+      <div class="brand-logo-text">JAINEX</div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid-3">
+      <div class="card highlight-emerald">
+        <div class="card-header">
+          <div class="card-icon emerald">🏆</div>
+          <div>
+            <div class="card-title">Immediate Business Gains</div>
+            <div class="pill pill-emerald" style="margin-top:4px;">Delivered Value</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>90% Reduction</strong> in invoice verification turnaround times.</li>
+          <li><strong>Zero Log Loss:</strong> 100% digital redundancy of all heavy machinery operating logs.</li>
+          <li><strong>Clear Accountability:</strong> Pinpoint exact gang responsibility for crane health and fuel usage.</li>
+          <li><strong>Total Field Visibility:</strong> Real-time overview of all machine deployments across all client sites.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight-blue">
+        <div class="card-header">
+          <div class="card-icon blue">🔒</div>
+          <div>
+            <div class="card-title">Enterprise Security Standards</div>
+            <div class="pill pill-blue" style="margin-top:4px;">Security Baseline</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>JWT Authentication:</strong> Secure encrypted session tokens.</li>
+          <li><strong>Role-Guarded Endpoints:</strong> Automatic blocking of unauthorized privilege escalations.</li>
+          <li><strong>Sanitized Media Uploads:</strong> Safe image processing for fleet and crew documents.</li>
+          <li><strong>Daily Automated Backups:</strong> Resilient disaster recovery procedures for all database records.</li>
+        </ul>
+      </div>
+
+      <div class="card highlight">
+        <div class="card-header">
+          <div class="card-icon amber">🚀</div>
+          <div>
+            <div class="card-title">Future Phase 2 Roadmap</div>
+            <div class="pill pill-amber" style="margin-top:4px;">Future Horizons</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><strong>IoT Telematics Integration:</strong> Direct CAN-bus integration to automatically read engine hours and fuel meters.</li>
+          <li><strong>GPS Geofencing:</strong> Automatic site check-in when crew/crane enters client yard boundary.</li>
+          <li><strong>Predictive Maintenance:</strong> Automated servicing reminders based on accumulated engine hours.</li>
+          <li><strong>Offline-First Mobile App:</strong> Service worker support for remote sites without network coverage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <div style="font-size: 20px; font-weight: 800; color: #ffffff;">Thank You!</div>
+      <div style="font-size: 14px; color: #94a3b8; margin-top: 4px;">Jainex Heavy Fleet & Crew Management System · Built for Enterprise Operational Excellence</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="confidential">🔒 Jainex Pariwahan Pvt. Ltd. — Conclusion & Roadmap</div>
+    <div class="slide-num">Slide 12 / 12</div>
+  </div>
+</div>
+
+</body>
+</html>

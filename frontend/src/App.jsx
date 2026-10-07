@@ -9,6 +9,7 @@ import Riggers from './pages/Riggers/Riggers';
 import Attendance from './pages/Attendance/Attendance';
 import Sites from './pages/Sites/Sites';
 import Assignments from './pages/Assignments/Assignments';
+import Logbook from './pages/Logbook/Logbook';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
 
-          {/* Protected Standard Dashboard & Attendance */}
+          {/* Protected Standard Dashboard & Attendance & Logbook */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
               <Dashboard />
@@ -30,7 +31,13 @@ function App() {
             </ProtectedRoute>
           } />
 
-          {/* Operator & Rigger ID-Prefixed Routes (e.g. /OP-001/dashboard, /RIG-002/attendance) */}
+          <Route path="/logbook" element={
+            <ProtectedRoute allowedRoles={['Admin', 'Supervisor', 'Operator']}>
+              <Logbook />
+            </ProtectedRoute>
+          } />
+
+          {/* Operator & Rigger ID-Prefixed Routes (e.g. /OP-001/dashboard, /OP-001/logbook) */}
           <Route path="/:idPrefix/dashboard" element={
             <ProtectedRoute>
               <Dashboard />
@@ -40,6 +47,12 @@ function App() {
           <Route path="/:idPrefix/attendance" element={
             <ProtectedRoute>
               <Attendance />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/:idPrefix/logbook" element={
+            <ProtectedRoute allowedRoles={['Admin', 'Supervisor', 'Operator']}>
+              <Logbook />
             </ProtectedRoute>
           } />
 

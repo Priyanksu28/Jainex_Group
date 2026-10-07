@@ -5,7 +5,7 @@ exports.getAllOperators = async () => {
   const [operators] = await db.execute(
     `SELECT * 
      FROM employee_details 
-     WHERE designation = 'Operator' 
+     WHERE LOWER(designation) LIKE '%operator%' 
      ORDER BY emp_id DESC`
   );
 

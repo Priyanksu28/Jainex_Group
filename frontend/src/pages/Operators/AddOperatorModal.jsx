@@ -126,9 +126,11 @@ const AddOperatorModal = ({ closeModal, refreshData }) => {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             
-            alert("Operator Registered Successfully with Declaration details!");
-            refreshData();
+            if (refreshData) {
+                await refreshData();
+            }
             closeModal();
+            alert("Operator Registered Successfully with Declaration details!");
         } catch (err) {
             alert(err.response?.data?.message || err.response?.data?.error || "Error saving operator");
         } finally {
@@ -272,12 +274,16 @@ const AddOperatorModal = ({ closeModal, refreshData }) => {
                             <div className="op-grid-3">
                                 <div className="op-field">
                                     <label>Designation (DEG)</label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="e.g. Crane Operator" 
+                                    <select 
                                         value={personal.designation}
                                         onChange={(e) => setPersonal({ ...personal, designation: e.target.value })}
-                                    />
+                                    >
+                                        <option value="Crane Operator">Crane Operator</option>
+                                        <option value="Hydra Operator">Hydra Operator</option>
+                                        <option value="Tower Crane Operator">Tower Crane Operator</option>
+                                        <option value="Crawler Crane Operator">Crawler Crane Operator</option>
+                                        <option value="Operator">Operator</option>
+                                    </select>
                                 </div>
                                 <div className="op-field">
                                     <label>Date of Joining (D.O.J)</label>

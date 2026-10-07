@@ -42,19 +42,25 @@ exports.addRigger = async (req, res) => {
       return res.status(400).json({ message: "First name, last name, and contact number are required" });
     }
 
+    // Normalize designation to ensure it's categorized as a Rigger
+    let finalDesignation = (designation || '').trim();
+    if (!finalDesignation || !finalDesignation.toLowerCase().includes('rigger')) {
+      finalDesignation = finalDesignation ? `${finalDesignation} (Rigger)` : 'Rigger';
+    }
+
     const photoPath = req.file ? `/uploads/riggers/${req.file.filename}` : null;
 
     const empData = [
-      first_name, 
-      last_name, 
+      first_name.trim(), 
+      last_name.trim(), 
       father_husband_name || null,
       dob || null, 
       gender || null,
       marital_status || null,
       joining_date || null, 
-      designation || 'Rigger', 
+      finalDesignation, 
       unit_name || null,
-      contact_no, 
+      contact_no.trim(), 
       email || null, 
       permanent_address || null,
       present_address || null,

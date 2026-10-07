@@ -9,7 +9,7 @@
 }
 
 .view-site-body {
-    padding: 24px;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -17,23 +17,24 @@
 }
 
 .site-hero-card {
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    color: #ffffff;
-    border-radius: 12px;
-    padding: 20px 24px;
+    background: var(--primary-gradient);
+    color: #FFFFFF;
+    border-radius: var(--radius-lg, 18px);
+    padding: 22px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
+    box-shadow: 0 8px 24px var(--primary-shadow);
 }
 
 .hero-code {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #ffb41d;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #93C5FD;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     margin-bottom: 4px;
 }
 
@@ -41,23 +42,25 @@
     font-size: 1.35rem;
     font-weight: 800;
     margin: 0;
-    color: #f8fafc;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
 }
 
 .hero-client {
     font-size: 0.9rem;
-    color: #cbd5e1;
+    color: rgba(255, 255, 255, 0.85);
     margin-top: 4px;
+    font-weight: 500;
 }
 
 .site-details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    background: #f8fafc;
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    background: #F8FAFC;
+    padding: 20px;
+    border-radius: var(--radius-lg, 18px);
+    border: 1px solid var(--border-subtle);
 }
 
 .detail-item {
@@ -71,45 +74,52 @@
 }
 
 .detail-label {
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.72rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #64748b;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
 }
 
 .detail-value {
     font-size: 0.95rem;
-    font-weight: 600;
-    color: #1e293b;
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
 .status-change-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
-    background: #fffbeb;
-    border: 1px solid #fef3c7;
-    border-radius: 10px;
+    padding: 16px 20px;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: var(--radius-md, 14px);
     gap: 12px;
 }
 
 .status-change-box label {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #92400e;
+    color: var(--primary-dark);
 }
 
 .status-select {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: 1.5px solid #fde68a;
-    font-weight: 600;
-    background: #ffffff;
-    color: #78350f;
+    padding: 10px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid #BFDBFE;
+    font-weight: 700;
+    background: #FFFFFF;
+    color: var(--primary);
     outline: none;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.status-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-shadow);
 }
 
 @media (max-width: 580px) {

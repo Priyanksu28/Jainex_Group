@@ -55,9 +55,11 @@ const DeployResourceModal = ({ siteId, sites = [], closeModal, refreshData }) =>
                 end_date: endDate || null,
                 remarks
             });
-            alert(`${resourceType} deployed to site successfully!`);
-            refreshData();
+            if (refreshData) {
+                await refreshData(selectedSiteId);
+            }
             closeModal();
+            alert(`${resourceType} deployed to site successfully!`);
         } catch (err) {
             console.error('Error deploying resource:', err);
             setError(err.response?.data?.error || 'Failed to deploy resource.');

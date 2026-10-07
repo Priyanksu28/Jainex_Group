@@ -5,7 +5,7 @@ exports.getAllRiggers = async () => {
   const [riggers] = await db.execute(
     `SELECT * 
      FROM employee_details 
-     WHERE designation = 'Rigger' 
+     WHERE LOWER(designation) LIKE '%rigger%' 
      ORDER BY emp_id DESC`
   );
 

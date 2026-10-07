@@ -73,14 +73,15 @@ const AddSiteModal = ({ closeModal, refreshData, siteToEdit = null }) => {
         try {
             if (isEditMode) {
                 await API.put(`/sites/${siteToEdit.id}`, formData);
-                alert('Site details updated successfully!');
             } else {
                 await API.post('/sites/add', formData);
-                alert('Site created successfully!');
             }
 
-            refreshData();
+            if (refreshData) {
+                await refreshData();
+            }
             closeModal();
+            alert(isEditMode ? 'Site details updated successfully!' : 'Site created successfully!');
         } catch (err) {
             console.error('Error saving site:', err);
             setError(err.response?.data?.error || 'Failed to save site. Please try again.');

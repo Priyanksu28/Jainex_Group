@@ -22,8 +22,9 @@ const Operators = () => {
 
     const fetchOperators = async () => {
         try {
+            setLoading(true);
             const res = await API.get('/operators/list');
-            setOperators(res.data);
+            setOperators(res.data || []);
         } catch (err) {
             console.error("Error fetching operators", err);
         } finally {
