@@ -1,0 +1,23 @@
+# PDF Documents & Presentation Files
+*.pdf
+Jainex_Fleet_Operations_Presentation.pdf
+Jainex_Fleet_Operations_Project_Report.pdf
+
+# Report generator scripts & HTML templates
+generate_report_pdf.js
+project_report.html
+presentation.html
+
+# Dependencies (Root, Backend, Frontend)
+
+
+# Environment Configuration & Secrets
+.env
+.env.local
+.env.*.local
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
